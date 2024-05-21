@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart Example</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Canvas element where the chart will be rendered -->
+    <canvas id="myChart" width="200" height="300"></canvas>
+
+    <script>
+        // JavaScript code to create the chart
+        // Get the canvas element
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Define the data for the chart
+        var data = {
+            labels: ['January', 'February', 'March', 'April', 'May'],
+            datasets: [{
+                label: 'Sales',
+                data: [500, 700, 600, 800, 800], // Sample data for sales in each month
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Bar color
+                borderColor: 'rgba(54, 162, 235, 1)', // Border color
+                borderWidth: 1
+            }]
+        };
+
+        // Create the chart
+        var myChart = new Chart(ctx, {
+            type: 'bar', // Specify the chart type
+            data: data,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
